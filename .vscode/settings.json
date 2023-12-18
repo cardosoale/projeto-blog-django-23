@@ -1,0 +1,59 @@
+{
+    "workbench.startupEditor": "none",
+    "explorer.compactFolders": false,
+    "workbench.iconTheme": "material-icon-theme",
+    "python.defaultInterpreterPath": "python",
+    "editor.fontSize": 16,
+    "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+    "code-runner.executorMap": {
+        "python": "clear && python -u"
+    },
+    "code-runner.runInTerminal": true,
+    "code-runner.ignoreSelection": true,
+    "editor.wordWrap": "on",
+    "git.autofetch": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    },
+    "editor.minimap.enabled": false,
+    "editor.inlineSuggest.enabled": true,
+    "git.suggestSmartCommit": true,
+    "git.enableSmartCommit": true,
+    "editor.fontFamily": "Fira Code",
+    "editor.fontLigatures": true,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.fontFamily": "Fira Code",
+    "terminal.integrated.defaultProfile.linux": "fish",
+    "editor.formatOnSave": true,
+    "[python]": {
+        "editor.formatOnSave": true
+    },
+    "python.testing.unittestEnabled": true,
+    "git.confirmSync": false,
+    "files.autoSave": "onFocusChange",
+    "javascript.format.semicolons": "insert",
+    "javascript.suggest.completeFunctionCalls": true,
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact",
+        "django-html": "html"
+    },
+    "editor.autoClosingBrackets": "always",
+    "editor.autoClosingQuotes": "always",
+    "debug.disassemblyView.showSourceCode": false,
+    "code-runner.clearPreviousOutput": true,
+    "editor.linkedEditing": true,
+    "[django-html]": {
+        "emmet.showAbbreviationSuggestions": true,
+        "emmet.triggerExpansionOnTab": true,
+        "editor.quickSuggestions": {
+            "other": true,
+            "comments": true,
+            "strings": true
+        }
+    },
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true,
+}
