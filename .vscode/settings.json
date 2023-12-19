@@ -33,7 +33,7 @@
     },
     "python.testing.unittestEnabled": true,
     "git.confirmSync": false,
-    "files.autoSave": "onFocusChange",
+    "files.autoSave": "off",
     "javascript.format.semicolons": "insert",
     "javascript.suggest.completeFunctionCalls": true,
     "emmet.includeLanguages": {
@@ -54,6 +54,6 @@
             "strings": true
         }
     },
-    "python.analysis.typeCheckingMode": "basic",
-    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "off",
+    "python.analysis.autoImportCompletions": false,
 }
