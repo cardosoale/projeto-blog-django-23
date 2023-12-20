@@ -55,5 +55,5 @@
         }
     },
     "python.analysis.typeCheckingMode": "off",
-    "python.analysis.autoImportCompletions": false,
+    "python.analysis.autoImportCompletions": true,
 }
