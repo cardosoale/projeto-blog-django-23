@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    {% include "blog/pages/partials/_head.html" %}
+  {% include 'blog/pages/partials/_head.html' %}
 </head>
-<body>
-    <h1>Exemplo: {{ site_setup.title }}</h1>
-    {% include "blog/pages/partials/_header.html" %}
-    {% block content %}{% endblock content %}
-    {% include "blog/pages/partials/_pagination.html" %}
-    {% include "blog/pages/partials/_footer.html" %}
+<body class="dark-theme"> 
+  {% include 'blog/pages/partials/_header.html' %}
+
+  {% block content %}{% endblock content %}
+  
+  {% include 'blog/pages/partials/_pagination.html' %}
+  
+  {% include 'blog/pages/partials/_footer.html' %}
+
+  {% include 'blog/pages/partials/_temp.html' %}
 </body>
 </html>
