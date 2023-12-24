@@ -1,3 +1,4 @@
+from email.policy import default
 from django.db import models
 from utils.rands import slugfy_new
 
@@ -17,6 +18,9 @@ class Tag(models.Model):
             self.slug = slugfy_new(self.name)
         return super().save(*args, **kwargs)
     
+    def __str__(self) -> str:
+        return self.name
+    
 class Category(models.Model):
     class Meta:
         verbose_name = 'Category'
@@ -32,3 +36,26 @@ class Category(models.Model):
         if not self.slug:
             self.slug = slugfy_new(self.name)
         return super().save(*args, **kwargs)
+    
+    def __str__(self) -> str:
+        return self.name
+    
+class Page(models.Model):
+    title = models.CharField(max_length=65,)
+    slug = models.SlugField(
+        unique=True, default='',
+        null=False, blank=True, max_length=255
+    )
+    is_published = models.BooleanField(
+        default=False,
+        help_text='Marque para publicar a página'
+        )
+    content = models.TextField()
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugfy_new(self.title, 4)
+        return super().save(*args, **kwargs)
+    
+    def __str__(self) -> str:
+        return self.title
