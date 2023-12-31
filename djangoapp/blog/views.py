@@ -10,10 +10,12 @@ from django.views.generic import ListView
 PER_PAGE = 9
 
 class PostListView(ListView):
-    model = Post
+    # model = Post 
+    # estou passando na queryset
     template_name = 'blog/pages/index.html'
     context_object_name = 'posts'
-    ordering = '-pk'
+    # ordering = '-pk' 
+    # estou passando na queryset
     paginate_by = PER_PAGE
     queryset = Post.objects.get_published()
     
@@ -46,6 +48,36 @@ class PostListView(ListView):
 #             'page_title': 'Home -',
 #         }
 #     )
+
+class CreatedByListView(PostListView):
+    def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
+        ctx = super().get_context_data(**kwargs)
+        
+        author_pk = self.kwargs.get('author_pk')
+        user = User.objects.filter(pk=author_pk).first()
+        
+        if user is None:
+            raise Http404()
+        
+        user_full_name = user.username
+        
+        
+        
+        if user.first_name:
+            user_full_name = f'{user.first_name} {user.last_name}'
+        page_title = 'Posts de ' + user_full_name + ' - '
+        
+        ctx.update({
+            'page_title': page_title,
+            'user': user,
+        })
+        
+        return  ctx
+    
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.filter(created_by__pk=self.kwargs.get('author_pk'))
+        return qs
     
 def created_by(request, author_pk):
     user = User.objects.filter(pk=author_pk).first()
